@@ -1,0 +1,92 @@
+<h1>Crear cuenta</h1>
+  <div class="row d-flex justify-content-center flex-column align-items-center">
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-9 text-center">
+      <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+        <form [formGroup]="formulario" (ngSubmit)="userSubmit()"    class="row gx-4 gy-3 d-flex justify-content-evenly">
+          <div class="col-sm-3">
+            <label>Nombre</label>
+            <input
+              type="text" formControlName="nombre"
+              class="form-control"
+              placeholder="Andres Gallego" 
+            />
+            <div *ngIf="formulario.controls['nombre'].invalid && (formulario.controls['nombre'].dirty || formulario.controls['nombre'].touched)" class="alert alert-danger">
+              <div *ngIf="formulario.controls['nombre'].hasError('required')">
+                  Campo obligatorio
+              </div>
+          </div>
+
+
+          </div>
+          <div class="col-sm-3">
+            <label>Edad (en años) </label>
+            <input
+              type="text" formControlName="edad"
+              class="form-control"
+              placeholder="Edad" 
+            />
+          </div>
+          <div *ngIf="formulario.controls['edad'].invalid && (formulario.controls['edad'].dirty || formulario.controls['edad'].touched)" class="alert alert-danger">
+            <div *ngIf="formulario.controls['edad'].hasError('required')">
+                Campo obligatorio
+            </div>
+        </div>
+
+          <div class="col-sm-4">
+            <label>Correo Electronico</label>
+            <input
+              type="email" formControlName="correo" class="form-control"
+              placeholder="andres@gmail.com" 
+            />
+            <div *ngIf="formulario.controls['correo'].invalid && (formulario.controls['correo'].dirty || formulario.controls['correo'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['correo'].hasError('required')">
+                    Campo obligatorio
+                </div>
+                <div *ngIf="formulario.controls['correo'].hasError('email')">
+                    Debe ser tipo example@example.com
+                </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <label>Fecha de nacimiento</label>
+            <input
+              type="text" formControlName="fechaNacimiento"
+              class="form-control"
+              placeholder="10/09/2005" 
+            />
+            <div *ngIf="formulario.controls['fechaNacimiento'].invalid && (formulario.controls['fechaNacimiento'].dirty || formulario.controls['fechaNacimiento'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['fechaNacimiento'].hasError('required')">
+                    Campo obligatorio
+                </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label>Sexo</label>
+            <select formControlName="sexo" class="form-select" id="specificSizeSelect">
+              <option value="0">Masculino</option>
+              <option  value="1">Femenino</option>
+            </select>
+            <div *ngIf="formulario.controls['sexo'].invalid && (formulario.controls['sexo'].dirty || formulario.controls['sexo'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['sexo'].hasError('required') ">
+                    Campo obligatorio
+                </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-2">
+            <label>Estatura(cm)</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="180" formControlName="estatura"
+            />
+          </div>
+
+
+          <div class="col-sm-6" style="text-align: end; margin-top: 20px">
+            <button class="btn btn-primary btn-sm" [disabled]="!formulario.valid">Enviar datos</button>
+        </div>
+        </form>
+
+        

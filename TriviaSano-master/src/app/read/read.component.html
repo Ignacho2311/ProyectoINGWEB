@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">correo</th>
+            <th scope="col">nombre</th>
+            <th scope="col">edad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let us of readData">
+            <th scope="row">{{us.correo}}</th>
+            <td>{{us.nombre}}</td>
+            <td>{{us.edad}}</td>
+            <td>{{us.sexo}}</td>
+            <td>{{us.estatura}}</td>
+            <td>{{us.peso}}</td>
+            <td>{{us.enfermedadCardiaca}}</td>
+            <td>{{us.futbol}}</td>
+            <td>{{us.baloncesto}}</td>
+            <td>{{us.alergia}}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            
+          </tr>
+        </tbody>
+      </table>
+</div>
